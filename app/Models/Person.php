@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Person extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $with = ['business'];
 
     public function business(): BelongsTo
     {
