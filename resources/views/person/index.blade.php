@@ -16,6 +16,7 @@
                     <table class="table-fixed border-separate border-spacing-6">
                         <thead>
                             <tr>
+                                
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -27,6 +28,7 @@
                         <tbody>
                             @foreach ($people as $person)
                                 <tr>
+                                    
                                     <td>{{ $person->firstname }} {{ $person->lastname }}</td>
                                     <td>{{ $person->email }} </td>
                                     <td>{{ $person->phone }} </td>
