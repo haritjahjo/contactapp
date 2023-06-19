@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Business extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $fillable = ['business_name', 'contact_email'];
 
     public function people(): HasMany
     {

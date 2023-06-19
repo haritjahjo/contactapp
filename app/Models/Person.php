@@ -11,6 +11,13 @@ class Person extends Model
 {
     use HasFactory, SoftDeletes;
     protected $with = ['business'];
+    protected $fillable = [
+        'business_id',
+        'firstname',
+        'lastname',
+        'email',
+        'phone',        
+    ];
 
     public function business(): BelongsTo
     {

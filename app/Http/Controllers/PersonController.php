@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PersonRequest;
 use App\Models\Business;
 use App\Models\Person;
 use Illuminate\Http\Request;
@@ -29,23 +30,10 @@ class PersonController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PersonRequest $request)
     {
 
-        $validated = $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'nullable|email',
-
-        ]);
-
-        $person = new Person();
-        $person->firstname = $request->input('firstname');
-        $person->lastname = $request->input('lastname');
-        $person->email = $request->input('email');
-        $person->phone = $request->input('phone');
-        $person->business_id = $request->input('business_id');
-        $person->save();
+        $person = Person::create($request->validated());
 
         return redirect(route('person.index'));
     }
@@ -70,24 +58,9 @@ class PersonController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Person $person)
+    public function update(PersonRequest $request, Person $person)
     {
-        $validated = $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'nullable|email',
-
-        ]);
-
-        
-            $person->firstname = $request->input('firstname');
-            $person->lastname = $request->input('lastname');
-            $person->email = $request->input('email');
-            $person->phone = $request->input('phone');
-            $person->business_id = $request->input('business_id');
-            $person->save();
-
-
+        $person->update($request->validated());
         return redirect(route('person.index'));
     }
 

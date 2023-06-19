@@ -14,6 +14,15 @@
                     <form action="{{ route('business.update', $business->id) }}" method="POST">
                         @csrf
                         @method('PUT')
+
+                        @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li class="text-red-600">{{ $error}}</li>
+                            @endforeach
+                        </ul>
+                            
+                        @endif
                         <div class="grid grid-cols-1 sm:grid-cols-6 gap-x-6 gap-y-6">
                             <span class="sm:col-span-3">
                                 <label class="block" for="business_name">Company Name</label>
@@ -28,7 +37,7 @@
                                           
                         </div>
                         <div class="mt-6 flex items-center justify-end gap-x-6">
-                            <a href="{{ route('person.index')}}">Cancel</a>
+                            <a href="{{ route('business.index')}}">Cancel</a>
                             <button class="bg-blue-600 text-white py-2 px-3 rounded-lg" type="submit">Update</button>
                         </div>
 

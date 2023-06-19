@@ -13,6 +13,14 @@
                     <h3 class="font-semibold pb-5">Add New Person</h3>
                     <form action="{{ route('person.store') }}" method="POST">
                         @csrf
+                        @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li class="text-red-600">{{ $error}}</li>
+                            @endforeach
+                        </ul>
+                            
+                        @endif
                         <div class="grid grid-cols-1 sm:grid-cols-6 gap-x-6 gap-y-6">
                             <span class="sm:col-span-3">
                                 <label class="block" for="firstname">First Name</label>
