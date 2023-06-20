@@ -20,6 +20,7 @@
                                 <th>Business Name</th>
                                 <th>Email</th>
                                 <th>Categories</th>
+                                <th>Tags</th>
                                 <th>Actions</th>
 
                             </tr>
@@ -34,7 +35,12 @@
                                         @foreach ($business->categories as $cat)
                                             {{ $cat->category_name}}
                                         @endforeach    
-                                    </td>                                   
+                                    </td>
+                                    <td>
+                                        @foreach ($business->tags as $tag)
+                                            {{$tag->tag_name}}
+                                        @endforeach
+                                    </td>
                                     <td>
                                         <a href="{{ route('business.edit', $business->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
