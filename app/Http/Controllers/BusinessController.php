@@ -41,9 +41,9 @@ class BusinessController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Business $business)
     {
-        //
+        return view('business.detail', compact('business'));
     }
 
     /**

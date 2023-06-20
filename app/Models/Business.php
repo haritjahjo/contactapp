@@ -21,4 +21,9 @@ class Business extends Model
     {
         return $this->belongsToMany(BusinessCategory::class, 'category_has_business');
     }
+
+    public function tasks()
+    {
+        return $this->morphMany(Task::class, 'taskable');
+    }
 }
