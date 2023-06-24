@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Tag extends Model
 {
     use HasFactory, SoftDeletes;
+    //protected $with = ['business', 'person'];
 
     public function people(): MorphToMany
     {

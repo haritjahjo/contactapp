@@ -16,7 +16,7 @@
                     <table class="table-fixed border-separate border-spacing-6">
                         <thead>
                             <tr>
-
+                                <th>S1</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -29,7 +29,7 @@
                         <tbody>
                             @foreach ($people as $person)
                                 <tr>
-
+                                    <td>{{ $loop->index + 1}}</td>
                                     <td><a href="{{ route('person.show', $person->id) }}">{{ $person->firstname }}
                                             {{ $person->lastname }}</a> </td>
                                     <td>{{ $person->email }} </td>

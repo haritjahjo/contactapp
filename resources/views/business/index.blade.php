@@ -16,7 +16,7 @@
                     <table class="table-fixed border-separate border-spacing-6">
                         <thead>
                             <tr>
-                                
+                                <th>S1</th>
                                 <th>Business Name</th>
                                 <th>Email</th>
                                 <th>Categories</th>
@@ -28,7 +28,7 @@
                         <tbody>
                             @foreach ($businesses as $business)
                                 <tr>
-                                    
+                                    <td>{{ $loop->index + 1}}</td>
                                     <td><a href="{{ route('business.show', $business->id)}}">{{ $business->business_name }}</a></td>
                                     <td>{{ $business->contact_email }} </td> 
                                     <td>
