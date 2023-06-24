@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PersonRequest;
 use App\Models\Business;
 use App\Models\Person;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PersonController extends Controller
@@ -15,6 +16,7 @@ class PersonController extends Controller
     public function index()
     {
         $people = Person::all();
+        
         return view('person.index', compact('people'));
     }
 
@@ -24,7 +26,8 @@ class PersonController extends Controller
     public function create()
     {
         $businesses = Business::all();
-        return view('person.create', compact('businesses'));
+        $tags = Tag::all();
+        return view('person.create', compact('businesses', 'tags'));
     }
 
     /**
@@ -34,6 +37,7 @@ class PersonController extends Controller
     {
 
         $person = Person::create($request->validated());
+        $person->tags()->sync($request->input('tag'));
 
         return redirect(route('person.index'));
     }
@@ -52,7 +56,8 @@ class PersonController extends Controller
     public function edit(Person $person)
     {
         $businesses = Business::all();
-        return view('person.edit', compact('person', 'businesses'));
+        $tags = Tag::all();
+        return view('person.edit', compact('person', 'businesses', 'tags'));
     }
 
     /**
@@ -60,7 +65,9 @@ class PersonController extends Controller
      */
     public function update(PersonRequest $request, Person $person)
     {
+        //dd($request);
         $person->update($request->validated());
+        $person->tags()->sync($request->input('tag'));
         return redirect(route('person.index'));
     }
 

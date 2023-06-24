@@ -39,7 +39,7 @@
                                         {{ $person->business?->business_name }} </td>
                                     <td>
                                         @foreach ($person->tags as $tag)
-                                            {{ $tag->tag_name }}
+                                            <h6 class="bg-green-200 rounded-lg text-center">{{ $tag->tag_name }}</h6> 
                                         @endforeach
                                     </td>
                                     <td>
