@@ -19,6 +19,8 @@
                                 <dd>{{ $person->phone }}</dd>
                                 <dt class="font-semibold">Email</dt>
                                 <dd>{{ $person->email }}</dd>
+                                <dt class="font-semibold">Birthday</dt>
+                                <dd>{{ $person->birthday }}</dd>
 
                             </dl>
                             <div class="pt-3">
