@@ -21,6 +21,7 @@
                                 <th>Email</th>
                                 <th>Categories</th>
                                 <th>Tags</th>
+                                <th># People</th>
                                 <th>Actions</th>
 
                             </tr>
@@ -41,6 +42,7 @@
                                             {{$tag->tag_name}}
                                         @endforeach
                                     </td>
+                                    <td>{{$business->people_count}}</td>
                                     <td>
                                         <a href="{{ route('business.edit', $business->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -56,6 +58,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $businesses->links()}}
 
                 </div>
             </div>

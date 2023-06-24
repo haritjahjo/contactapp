@@ -13,7 +13,7 @@ class BusinessController extends Controller
      */
     public function index()
     {
-        $businesses = Business::all();
+        $businesses = Business::withCount('people')->paginate(10);
         return view('business.index', compact('businesses'));
     }
 

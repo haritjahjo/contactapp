@@ -29,7 +29,7 @@
                         <tbody>
                             @foreach ($people as $person)
                                 <tr>
-                                    <td>{{ $loop->index + 1}}</td>
+                                    <td>{{(($people->currentpage()-1 ))*($people->perpage()+1 )}}</td>
                                     <td><a href="{{ route('person.show', $person->id) }}">{{ $person->firstname }}
                                             {{ $person->lastname }}</a> </td>
                                     <td>{{ $person->email }} </td>
@@ -57,6 +57,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $people->links()}}
 
                 </div>
             </div>

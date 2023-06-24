@@ -13,7 +13,7 @@
                     <table class="table-fixed border-separate border-spacing-6">
                         <thead>
                             <tr>
-
+                                <th>S1</th>
                                 <th>Task Title</th>
                                 <th>For</th>
                                 <th>Status</th>
@@ -24,7 +24,7 @@
                         <tbody>
                             @foreach ($tasks as $task)
                                 <tr>
-
+                                    <td>{{ $task->id }}</td>
                                     <td>{{ $task->title }}</td>
                                     <td>
                                         <div class="flex mx-auto">
@@ -64,6 +64,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $tasks->links()}}
 
                 </div>
             </div>
