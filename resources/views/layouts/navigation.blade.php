@@ -48,6 +48,12 @@
                         </x-slot>
                     </x-dropdown>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('task.index')" :active="request()->routeIs('task.index')">
+                        {{ __('Tasks') }}
+                    </x-nav-link>
+                </div>
+
             </div>
 
             <!-- Settings Dropdown -->
